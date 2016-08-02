@@ -27,6 +27,21 @@ namespace Lesson56
                             .AddSport(Sport.FemaleSport[1],48,"good girl.")
                             .AddSport(Sport.FemaleSport[0],35,"middle level")
                             .AddSport(Sport.FemaleSport[5], 19,"not bad but do so more")
+                            .AddSport(Sport.FemaleSport[2], 47,"so good, but you do more "),
+                (new Boy() {Name="Entony", Age= 14})
+                            .AddSport(Sport.MaleSport[1],23,"good boy")
+                            .AddSport(Sport.MaleSport[0],35,"middle level"),
+                (new Girl() {Name="Elizabet", Age= 12})
+                            .AddSport(Sport.FemaleSport[0],50,"very good")
+                            .AddSport(Sport.FemaleSport[4],18,"good level"),
+                (new Boy() {Name="Kevin", Age= 15})
+                            .AddSport(Sport.MaleSport[2],23,"fine")
+                            .AddSport(Sport.MaleSport[4],35,"middle level")
+                            .AddSport(Sport.MaleSport[1], 42,"so good"),
+                (new Girl() {Name="Helga", Age= 10})
+                            .AddSport(Sport.FemaleSport[4],48,"good girl.")
+                            .AddSport(Sport.FemaleSport[0],35,"middle level")
+                            .AddSport(Sport.FemaleSport[5], 19,"not bad but do so more")
                             .AddSport(Sport.FemaleSport[2], 47,"so good, but you do more ")
             };
             foreach (var item in Scout.ListOfScout)

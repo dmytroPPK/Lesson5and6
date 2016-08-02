@@ -480,7 +480,7 @@ namespace Lesson56
         }
 
 
-        private static void Calculate() //Fixed !!!
+        private static void Calculate() //Fixed !!! Fen Shui is done )
         {
 
             if (Scout.ListOfScout == null || Scout.ListOfScout.Count == 0)
@@ -508,20 +508,27 @@ namespace Lesson56
             # region Самый высокий средний бал дев и мальчик
             {
                 
-                var scoutBoy = (from item in Scout.ListOfScout
-                                where item is Boy
-                                orderby item.AvarScore descending
-                                select item).ToList();
-
-                var scoutGirl = (from item in Scout.ListOfScout
-                                 where item is Girl
-                                 orderby item.AvarScore descending
+                var scoutBoys = (from item in Scout.ListOfScout
+                                 where item is Boy 
+                                 where item.AvarScore == (Scout.ListOfScout.Where(ob=>ob is Boy)).Max(p=>p.AvarScore)
                                  select item).ToList();
 
+                var scoutGirls = (from item in Scout.ListOfScout
+                                  where item is Girl
+                                  where item.AvarScore == (Scout.ListOfScout.Where(ob => ob is Girl)).Max(p => p.AvarScore)
+                                  select item).ToList();
 
 
-                Console.WriteLine("Мах средний бал среди парней: " + scoutBoy[0].AvarScore + ". У " + scoutBoy[0].Name);
-                Console.WriteLine("Мах средний бал среди девушек: " + scoutGirl[0].AvarScore + ". У " + scoutGirl[0].Name);
+
+                foreach(var scout in scoutBoys)
+                {
+                    Console.WriteLine("Мах средний бал среди парней: " + scout.AvarScore + ". У " + scout.Name);
+                }
+                foreach (var scout in scoutGirls)
+                {
+                    Console.WriteLine("Мах средний бал среди девушек: " + scout.AvarScore + ". У " + scout.Name);
+                }
+                
             }
 
             Console.WriteLine(new String('-', 20));
@@ -529,51 +536,75 @@ namespace Lesson56
 
             #region Самого успешного скаута – больше всего балов за все предметы (мальчик и девочка)
             {
-                var scoutBoy = (from item in Scout.ListOfScout
-                                where item is Boy
-                                orderby item.AllScore descending
-                                select item).ToList();
-
-                var scoutGirl = (from item in Scout.ListOfScout
-                                 where item is Girl
-                                 orderby item.AllScore descending
+                var scoutBoys = (from item in Scout.ListOfScout
+                                 where item is Boy
+                                 where item.AllScore == (Scout.ListOfScout.Where(ob => ob is Boy)).Max(p => p.AllScore)
                                  select item).ToList();
-                Console.WriteLine("Мах бал за все предметы среди парней: " + scoutBoy[0].AllScore + ". У " + scoutBoy[0].Name);
-                Console.WriteLine("Мах бал за все предметы среди девушек: " + scoutGirl[0].AllScore + ". У " + scoutGirl[0].Name);
+
+                var scoutGirls = (from item in Scout.ListOfScout
+                                  where item is Girl
+                                  where item.AllScore == (Scout.ListOfScout.Where(ob => ob is Girl)).Max(p => p.AllScore)
+                                  select item).ToList();
+
+                foreach (var scout in scoutBoys)
+                {
+                    Console.WriteLine("Мах бал за все предметы среди парней: " + scout.AllScore + ". У " + scout.Name);
+                }
+                foreach (var scout in scoutGirls)
+                {
+                    Console.WriteLine("Мах бал за все предметы среди девушек: " + scout.AllScore + ". У " + scout.Name);
+                }
+                
             }
             Console.WriteLine(new String('-', 20));
             #endregion
 
             #region Самого активного скаута – больше всего предметов (мальчик и девочка)
             {
-                var scoutBoy = (from item in Scout.ListOfScout
-                                where item is Boy
-                                orderby item.NumSports descending
-                                select item).ToList();
-
-                var scoutGirl = (from item in Scout.ListOfScout
-                                 where item is Girl
-                                 orderby item.NumSports descending
+                var scoutBoys = (from item in Scout.ListOfScout
+                                 where item is Boy
+                                 where item.NumSports == (Scout.ListOfScout.Where(ob => ob is Boy)).Max(p => p.NumSports)
                                  select item).ToList();
-                Console.WriteLine("Мах к-ство предметов среди парней: " + scoutBoy[0].NumSports + ". У " + scoutBoy[0].Name);
-                Console.WriteLine("Мах к-ство предметов среди девушек: " + scoutGirl[0].NumSports + ". У " + scoutGirl[0].Name);
+
+                var scoutGirls = (from item in Scout.ListOfScout
+                                  where item is Girl
+                                  where item.NumSports == (Scout.ListOfScout.Where(ob => ob is Girl)).Max(p => p.NumSports)
+                                  select item).ToList();
+
+                foreach (var scout in scoutBoys)
+                {
+                    Console.WriteLine("Мах к-ство предметов среди парней: " + scout.NumSports + ". У " + scout.Name);
+                }
+                foreach (var scout in scoutGirls)
+                {
+                    Console.WriteLine("Мах к-ство предметов среди девушек: " + scout.NumSports + ". У " + scout.Name);
+                }
+                
             }
             Console.WriteLine(new String('-', 20));
             #endregion
 
             #region Самого большого лентяя мальчика, девочку. (меньше всего предметов)
             {
-                var scoutBoy = (from item in Scout.ListOfScout
-                                where item is Boy
-                                orderby item.NumSports
-                                select item).ToList();
-
-                var scoutGirl = (from item in Scout.ListOfScout
-                                 where item is Girl
-                                 orderby item.NumSports
+                var scoutBoys = (from item in Scout.ListOfScout
+                                 where item is Boy
+                                 where item.NumSports == (Scout.ListOfScout.Where(ob => ob is Boy)).Min(p => p.NumSports)
                                  select item).ToList();
-                Console.WriteLine("Min к-ство предметов среди парней: " + scoutBoy[0].NumSports + ". У " + scoutBoy[0].Name);
-                Console.WriteLine("Min к-ство предметов среди девушек: " + scoutGirl[0].NumSports + ". У " + scoutGirl[0].Name);
+
+                var scoutGirls = (from item in Scout.ListOfScout
+                                  where item is Girl
+                                  where item.NumSports == (Scout.ListOfScout.Where(ob => ob is Girl)).Min(p => p.NumSports)
+                                  select item).ToList();
+
+                foreach (var scout in scoutBoys)
+                {
+                    Console.WriteLine("Min к-ство предметов среди парней: " + scout.NumSports + ". У " + scout.Name);
+                }
+                foreach (var scout in scoutGirls)
+                {
+                    Console.WriteLine("Min к-ство предметов среди девушек: " + scout.NumSports + ". У " + scout.Name);
+                }
+                
 
             }
             Console.WriteLine(new String('-', 20));
@@ -583,7 +614,7 @@ namespace Lesson56
             {
                 for (int i = 0; i < Scout.ListOfScout.Count; i++)
                 {
-                    Console.WriteLine(" - Nmae: " + Scout.ListOfScout[i].Name + "; average score: " + Scout.ListOfScout[i].AvarScore);
+                    Console.WriteLine("  - Name: {0,10}; avarage score: {1}", Scout.ListOfScout[i].Name, Scout.ListOfScout[i].AvarScore);
                 }
             }
             Console.WriteLine(new String('-', 20));
