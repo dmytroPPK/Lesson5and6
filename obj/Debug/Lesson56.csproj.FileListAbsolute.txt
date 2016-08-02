@@ -1,0 +1,6 @@
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\bin\Debug\Lesson56.exe.config
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\bin\Debug\Lesson56.exe
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\bin\Debug\Lesson56.pdb
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\obj\Debug\Lesson56.exe
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\obj\Debug\Lesson56.pdb
+C:\Users\Dmytro\documents\visual studio 2015\Projects\Lesson56\obj\Debug\Lesson56.csprojResolveAssemblyReference.cache
